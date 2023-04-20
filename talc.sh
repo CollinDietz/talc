@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+
 for f in $2/*.in
 do
-	output=$(diff <(./$1 < $f) ${f/".in"/".out"})
+	output=$(diff <($1 < $f) ${f/".in"/".out"})
 	if [ "$?" -eq 0 ]; then
 		printf 🔵
 	else
