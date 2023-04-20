@@ -1,0 +1,18 @@
+name: test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+  steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+    - name: Run echo example
+      run: cd ./examples/echo/ && sh run.sh
+    - name: Run reverse_lines example
+      run: cd ./examples/reverse_lines/ && sh run.sh
